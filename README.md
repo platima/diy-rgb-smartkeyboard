@@ -1,8 +1,11 @@
-(https://github.com/platima/diy-rgb-smartkeyboard/blob/main/Images/Banner.png?raw=true)
+![Banner Image of Product](https://github.com/platima/diy-rgb-smartkeyboard/blob/main/Images/Banner.png?raw=true)
 
 ## Intro
 
 My DIY Arduino-Powered RGB Smart Keyboard as seen at [https://](https://www.youtube.com/shorts/UjEVFXl_sq0)
+
+My implementation of the code is targeted at OBS control, but you can of course change it, and I have included other
+example Arduino sketches too.
 
 ## Resources
 
