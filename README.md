@@ -1,6 +1,8 @@
+(https://github.com/platima/diy-rgb-smartkeyboard/blob/main/Images/Banner.png?raw=true)
+
 ## Intro
 
-My DIY Arduino-Powered RGB Smart Keyboard as seen at https://
+My DIY Arduino-Powered RGB Smart Keyboard as seen at [https://](https://www.youtube.com/shorts/UjEVFXl_sq0)
 
 ## Resources
 
