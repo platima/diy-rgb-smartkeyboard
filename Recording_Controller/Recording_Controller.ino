@@ -200,8 +200,6 @@ void loop() {
         if (buttons[i].fell()) {
             Keyboard.press(keyboardKeys[i]);
             Keyboard.release(keyboardKeys[i]);
-            
-            // ... [keep all previous code until the switch statement] ...
 
             switch (buttonTypes[i]) {
                 case TOGGLE_RED:  // Recording button
