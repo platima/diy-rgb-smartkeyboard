@@ -43,9 +43,9 @@
    - [3D Print the case](https://www.thingiverse.com/thing:4186055)
    - Source components:
      - [Arduino Pro Micro](https://shop.plati.ma/products/atmega32u4-micro-devboard-5v)
-     - [Cherry MX Switches](https://www.mouser.com/ProductDetail/CHERRY/MX2A-51NA)
+     - [Cherry MX Switches]([https://www.mouser.com/ProductDetail/CHERRY/MX2A-51NA](https://au.mouser.com/ProductDetail/CHERRY/MX2A-51NA?qs=sGAEpiMZZMtFyPk3yBMYYFHJKmZdO4Tdd%2FwfXK1ruHk%3D))
      - [RGB LEDs](https://shop.plati.ma/products/xinglight-rgbc-smd-leds-ws2812b-compatible)
-   - PCB Manufacturing:
+   - 3D Case by PCBWay:
      - [Order via PCBWay](https://plati.ma/go/pcbway-github12kit)
 
 ## 💻 Software Setup
