@@ -61,7 +61,8 @@
 - 🎨 Custom Lighting Patterns
 - 🔗 Integration with Popular Software
 
-Check out the demo video: [YouTube Demo](https://www.youtube.com/shorts/UjEVFXl_sq0)
+60s YouTube 'shorts' about the build: [YouTube Demo](https://www.youtube.com/shorts/UjEVFXl_sq0)
+Full 20-minute video from start to end: TBC
 
 ## 🔗 Related Projects
 - 🎹 Based on the [original 8-key design](https://www.thingiverse.com/thing:2822140)
