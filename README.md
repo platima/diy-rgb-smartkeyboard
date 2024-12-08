@@ -62,6 +62,7 @@
 - 🔗 Integration with Popular Software
 
 60s YouTube 'shorts' about the build: [YouTube Demo](https://www.youtube.com/shorts/UjEVFXl_sq0)
+
 Full 20-minute video from start to end: TBC
 
 ## 🔗 Related Projects
