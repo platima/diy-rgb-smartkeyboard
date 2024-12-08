@@ -2,7 +2,7 @@
 
 ## Intro
 
-My DIY Arduino-Powered RGB Smart Keyboard as seen at [https://](https://www.youtube.com/shorts/UjEVFXl_sq0)
+My DIY Arduino-Powered RGB Smart Keyboard as seen at [https://www.youtube.com/shorts/UjEVFXl_sq0](https://www.youtube.com/shorts/UjEVFXl_sq0)
 
 My implementation of the code is targeted at OBS control, but you can of course change it, and I have included other
 example Arduino sketches too.
