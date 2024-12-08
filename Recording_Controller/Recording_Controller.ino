@@ -167,6 +167,8 @@ void setup() {
     Keyboard.begin();
 }
 
+// ... [keep all includes, defines, and declarations the same until the loop() function] ...
+
 void loop() {
     if (startupMode) {
         updateStartupAnimation();
@@ -186,6 +188,12 @@ void loop() {
     uint32_t currentTime = millis();
     bool updateLeds = false;
     
+    // Set autofocus LED state (always on unless manual focus is active)
+    if (!ledStates[5] && !ledStates[6] && !ledStates[7]) {  // If no manual focus points are active
+        ledStates[4] = true;
+        rainbowMode[4] = true;
+    }
+    
     for (uint8_t i = 0; i < NUM_BUTTONS; i++) {
         buttons[i].update();
         
@@ -193,32 +201,37 @@ void loop() {
             Keyboard.press(keyboardKeys[i]);
             Keyboard.release(keyboardKeys[i]);
             
+            // ... [keep all previous code until the switch statement] ...
+
             switch (buttonTypes[i]) {
-                case TOGGLE_RED:
+                case TOGGLE_RED:  // Recording button
                     ledStates[i] = !ledStates[i];
                     leds[ledPositions[i]] = ledStates[i] ? BRIGHT_RED : CRGB::Black;
-                    updateLeds = true;
-                    break;
-                    
-                case TOGGLE_YELLOW:
-                    ledStates[i] = !ledStates[i];
-                    leds[ledPositions[i]] = ledStates[i] ? BRIGHT_YELLOW : CRGB::Black;
-                    updateLeds = true;
-                    break;
-                    
-                case AUTOFOCUS:
-                    ledStates[i] = !ledStates[i];
-                    rainbowMode[i] = ledStates[i];
-                    if (ledStates[i]) {
-                        clearFocusGroup();
-                    }
-                    if (!ledStates[i]) {
-                        leds[ledPositions[i]] = CRGB::Black;
+                    if (!ledStates[i]) {  // If stopping recording
+                        // Turn off pause LED as well
+                        ledStates[1] = false;
+                        leds[ledPositions[1]] = CRGB::Black;
                     }
                     updateLeds = true;
                     break;
                     
-                case FOCUS_POINT:
+                case TOGGLE_YELLOW:  // Pause button
+                    if (ledStates[0]) {  // Only work if recording is active
+                        ledStates[i] = !ledStates[i];
+                        leds[ledPositions[i]] = ledStates[i] ? BRIGHT_YELLOW : CRGB::Black;
+                        updateLeds = true;
+                    }
+                    break;
+                    
+                case AUTOFOCUS:  // Button 5 - Actively enables autofocus
+                    clearFocusGroup();  // Turn off manual focus points
+                    ledStates[4] = true;  // Enable autofocus
+                    rainbowMode[4] = true;
+                    updateLeds = true;
+                    break;
+                    
+                case FOCUS_POINT:  // Buttons 6-8
+                    // Turn off autofocus rainbow
                     ledStates[4] = false;
                     rainbowMode[4] = false;
                     leds[ledPositions[4]] = CRGB::Black;
@@ -232,19 +245,18 @@ void loop() {
                 case SCENE_SELECT:
                     clearSceneGroup();
                     ledStates[i] = true;
-                    leds[ledPositions[i]] = BRIGHT_AQUA;  // Solid aqua instead of rainbow
+                    leds[ledPositions[i]] = BRIGHT_AQUA;
                     updateLeds = true;
                     break;
             }
         }
     }
     
-    // Update rainbow cycling for active LEDs (now only for autofocus)
+    // Update rainbow cycling for autofocus LED
     static uint32_t lastRainbowUpdate = 0;
     if (currentTime - lastRainbowUpdate >= RAINBOW_SPEED) {
         lastRainbowUpdate = currentTime;
         
-        // Only update rainbow for autofocus button
         if (ledStates[4] && rainbowMode[4]) {
             leds[ledPositions[4]] = CHSV(hueValues[4]++, 255, 255);
             updateLeds = true;
